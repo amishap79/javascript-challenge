@@ -2,7 +2,6 @@
 var sightings = data;
 
 d3.select("#datetime").on("change", () => {
-    console.log("in change: " + d3.event.target.value);
     dateInput =  d3.event.target.value;
 })
 
@@ -14,11 +13,8 @@ dateFilterBtn.on("click", function() {
         
         var dateInputText = d3.select("#datetime").property("value");
         var sightingDate = sighting.datetime;
-        console.log(dateInputText);
-        console.log(sightingDate);
        
         if (Date.parse(sightingDate) == Date.parse(dateInputText) ) {
-            console.log("in if")
             var row = tbody.append("tr");
         
             Object.entries(sighting).forEach(([key, value]) => {
